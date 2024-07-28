@@ -14,17 +14,28 @@ public class Test {
 
         b.order(ByteOrder.LITTLE_ENDIAN);
 
-        int capacity = b.capacity();
-        int position = b.position();
-        int limit = b.limit();
-        int remaining = b.remaining();
-        boolean more = b.hasRemaining();
+        System.out.println("capacity " + b.capacity());
+        System.out.println("position " + b.position());
+        System.out.println("limit " + b.limit());
+        System.out.println("remaining " + b.remaining());
+        System.out.println("has remaining " + b.hasRemaining());
 
         b.put((byte)101);
         b.putChar('a');
         b.putInt(0xcafebabe);
 
         double d = b.getDouble();
+
+        System.out.println(b.get());
+        System.out.println(b.get());
+        System.out.println(b.get());
+
+        b.position(0);
+        System.out.println(b.get());
+        b.position(1);
+        System.out.println(b.get());
+        b.position(2);
+        System.out.println(b.get());
     }
 
 }
